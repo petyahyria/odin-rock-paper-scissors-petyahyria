@@ -10,6 +10,10 @@ let getComputerChoice = () => {
 
 let getHumanChoice = () => {
     let humanChoice = prompt("Type 'Rock', 'Paper' or 'Scissors' (without quotes)");
+    //validation loop
+    while(humanChoice !== "Rock" && humanChoice !== "Paper" && humanChoice !== "Scissors"){
+        humanChoice = prompt("Maybe you've made typo, try again \n Type 'Rock', 'Paper' or 'Scissors' (without quotes)");
+    }
     return humanChoice; 
 }
 
