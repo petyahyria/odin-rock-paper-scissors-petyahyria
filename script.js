@@ -70,4 +70,42 @@ let playRound = (computerChoice, humanChoice) => {
     }
 }
 
-playRound(getComputerChoice(), getHumanChoice());
+/* Play game */
+
+let printResults = () => {
+    console.log(`You: ${humanScore}`);
+    console.log(`Computer: ${computerScore}`);
+
+    if(computerScore > humanScore){
+        console.log("You lose! You see computer dancing his winning dance");
+        console.log("Maybe today is not your day");
+    }else if(computerScore < humanScore){
+        console.log("You win! You see computer going home with sad face");
+        console.log("You celebrate your victory");
+    }else{
+        console.log("Tie! Maybe today planets get into particular place")
+    }
+}
+
+let playGame = () =>{
+    console.log(
+        `
+        Welcome to the rock paper scissors game!
+        Rules:
+        - Rock beats scissors
+        - Paper beats rock
+        - Scissors cut paper
+        - 5 rounds
+        - Who has higher score wins a game    
+        `
+    );
+    
+    let numberOfRounds = 5;
+    for(let i = 1; i <= numberOfRounds; i++){
+        playRound(getComputerChoice(), getHumanChoice());
+    }
+
+    printResults();
+}
+
+playGame();
