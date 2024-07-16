@@ -12,7 +12,7 @@ let getHumanChoice = () => {
     let humanChoice = prompt("Type 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)").toLowerCase();
     //validation loop
     while(humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors"){
-        humanChoice = prompt("Maybe you've made a typo\nType 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)");
+        humanChoice = prompt("Maybe you've made a typo\nType 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)").toLowerCase();
     }
     return humanChoice; 
 }
@@ -99,13 +99,20 @@ let playGame = () =>{
         - Who has higher score wins a game    
         `
     );
-    
+
     let numberOfRounds = 5;
     for(let i = 1; i <= numberOfRounds; i++){
         playRound(getComputerChoice(), getHumanChoice());
     }
 
     printResults();
+    console.log(
+        `
+        Press
+        MAC: CMD+R to play again
+        WINDOWS: CONTROL+R to play again
+        `
+    );
 }
 
 playGame();
