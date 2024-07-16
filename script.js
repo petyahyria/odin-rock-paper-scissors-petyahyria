@@ -1,7 +1,7 @@
 /* Computer Choice */
 
 let getComputerChoice = () => {
-    const choices = ["Rock", "Paper", "Scissors"];
+    const choices = ["rock", "paper", "scissors"];
     let computerChoice = Math.floor(Math.random() * 3);
     return choices[computerChoice];
 }
@@ -9,10 +9,10 @@ let getComputerChoice = () => {
 /* Human choice */
 
 let getHumanChoice = () => {
-    let humanChoice = prompt("Type 'Rock', 'Paper' or 'Scissors' (without quotes)");
+    let humanChoice = prompt("Type 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)").toLowerCase();
     //validation loop
-    while(humanChoice !== "Rock" && humanChoice !== "Paper" && humanChoice !== "Scissors"){
-        humanChoice = prompt("Maybe you've made typo, try again \n Type 'Rock', 'Paper' or 'Scissors' (without quotes)");
+    while(humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors"){
+        humanChoice = prompt("Maybe you've made a typo\nType 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)");
     }
     return humanChoice; 
 }
@@ -25,47 +25,49 @@ let computerScore = 0;
 /* Play Round */
 
 let playRound = (computerChoice, humanChoice) => {
-    if(computerChoice === "Rock"){
+    if(computerChoice === "rock"){
         switch (humanChoice) {
-            case "Rock":
-                console.log("Tie! Nobody gets a point")
+            case "rock":
+                console.log("Both Rock!\nTie! Nobody gets a point")
                 break;
-            case "Paper":
-                console.log("You win this round! You get a point!")
+            case "paper":
+                console.log("Paper beats Rock!\nYou win this round! You get a point!")
                 humanScore++;
                 break;
-            case "Scissors":
-                console.log("You lose this round! Computer gets a point")
+            case "scissors":
+                console.log("Rock beats Scissors!\nYou lose this round! Computer gets a point")
                 computerScore++;
                 break;
         }
-    }else if(computerChoice === "Paper"){
+    }else if(computerChoice === "paper"){
         switch (humanChoice) {
-            case "Paper":
-                console.log("Tie! Nobody gets a point")
+            case "paper":
+                console.log("Both Paper!\n Tie! Nobody gets a point")
                 break;
-            case "Scissors":
-                console.log("You win this round! You get a point!")
+            case "scissors":
+                console.log("Scissors cut a Paper!\nYou win this round! You get a point!")
                 humanScore++;
                 break;
-            case "Rock":
-                console.log("You lose this round! Computer gets a point")
+            case "rock":
+                console.log("Paper beats Rock!\nYou lose this round! Computer gets a point")
                 computerScore++;
                 break;
         }
     }else {
         switch (humanChoice) {
-            case "Scissors":
-                console.log("Tie! Nobody gets a point")
+            case "scissors":
+                console.log("Both Scissors!\nTie! Nobody gets a point")
                 break;
-            case "Rock":
-                console.log("You win this round! You get a point!")
+            case "rock":
+                console.log("Rock beats Scissors!\nYou win this round! You get a point!")
                 humanScore++;
                 break;
-            case "Paper":
-                console.log("You lose this round! Computer gets a point")
+            case "paper":
+                console.log("Scissors cut a Paper!\nYou lose this round! Computer gets a point")
                 computerScore++;
                 break;
         }
     }
 }
+
+playRound(getComputerChoice(), getHumanChoice());
