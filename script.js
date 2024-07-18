@@ -17,6 +17,11 @@ let playerScore = 0;
 let computerScore = 0;
 /* Put Down Results */
 let resultsBox = document.createElement("div");
+resultsBox.style.cssText =  `
+                            background-color: #9893DA;
+                            border: 2px solid #797A9E;
+                            padding: 16px;
+                            `
 const resultsRoot = document.querySelector("#results-root");
 resultsRoot.appendChild(resultsBox);
 let showResults = (resultMessage, round) =>{
