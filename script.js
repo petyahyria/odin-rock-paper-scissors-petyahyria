@@ -14,20 +14,20 @@ let getComputerChoice = () => {
 
 /* Score of players */
 
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
 
 /* Play Round */
 
-let playRound = (computerChoice, humanChoice) => {
+let playRound = (computerChoice, playerChoice) => {
     if(computerChoice === "rock"){
-        switch (humanChoice) {
+        switch (playerChoice) {
             case "rock":
                 console.log("Both Rock!\nTie! Nobody gets a point")
                 break;
             case "paper":
                 console.log("Paper beats Rock!\nYou win this round! You get a point!")
-                humanScore++;
+                playerScore++;
                 break;
             case "scissors":
                 console.log("Rock beats Scissors!\nYou lose this round! Computer gets a point")
@@ -35,13 +35,13 @@ let playRound = (computerChoice, humanChoice) => {
                 break;
         }
     }else if(computerChoice === "paper"){
-        switch (humanChoice) {
+        switch (playerChoice) {
             case "paper":
                 console.log("Both Paper!\n Tie! Nobody gets a point")
                 break;
             case "scissors":
                 console.log("Scissors cut a Paper!\nYou win this round! You get a point!")
-                humanScore++;
+                playerScore++;
                 break;
             case "rock":
                 console.log("Paper beats Rock!\nYou lose this round! Computer gets a point")
@@ -49,13 +49,13 @@ let playRound = (computerChoice, humanChoice) => {
                 break;
         }
     }else {
-        switch (humanChoice) {
+        switch (playerChoice) {
             case "scissors":
                 console.log("Both Scissors!\nTie! Nobody gets a point")
                 break;
             case "rock":
                 console.log("Rock beats Scissors!\nYou win this round! You get a point!")
-                humanScore++;
+                playerScore++;
                 break;
             case "paper":
                 console.log("Scissors cut a Paper!\nYou lose this round! Computer gets a point")
