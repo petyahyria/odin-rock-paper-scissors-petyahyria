@@ -77,6 +77,53 @@ let makeImageActive = (choice, computerOrPlayer) =>{
 }
 
 makeImageActive();
+
+/* Finish a game */
+
+let finishGame = () =>{
+    let finishGameWindow = document.createElement("h2");
+    finishGameWindow.style.cssText = `
+                                        display: flex;
+                                        position:absolute;
+                                        with: 60vw;
+                                        height: 40vh;
+                                        left: 20vw;
+                                        background-color: #9893DA;
+                                        border: 2px solid #797A9E;
+                                        padding: 16px;
+                                        border-radius: 25px; 
+                                        bottom: 30vh;
+                                        align-items: center;        
+                                     `
+
+    
+    const playerPart = document.querySelector("#player-part");
+    let indentor = document.createElement("div");
+    indentor.classList.add("indentor");
+    if( playerScore === 5 ){
+        finishGameWindow.innerHTML = `
+                                            Player: ${playerScore} <br>
+                                            Computer: ${computerScore} <br>
+                                            You Win! You see computer going home and cry. <br>
+                                            Press 'Ctrl + R' or 'cmd + R' to replay
+                                        `
+        resultsRoot.appendChild(finishGameWindow);
+        buttonsContainer.style.display = "none";
+        playerPart.insertBefore(indentor, playerScoreParagraph);
+    }else if(computerScore === 5){
+        finishGameWindow.innerHTML = `
+                                            Player: ${playerScore} <br>
+                                            Computer: ${computerScore} <br>
+                                            You Lose! You see computer celebrating his victory. <br>
+                                            Press 'Ctrl + R' or 'cmd + R' to replay
+                                        `
+        resultsRoot.appendChild(finishGameWindow);
+        buttonsContainer.style.display = "none";
+        playerPart.insertBefore(indentor, playerScoreParagraph);
+    }
+}
+
+
 /* Play Round */
 let roundCounter = 1;
 let playRound = (computerChoice, playerChoice) => {
@@ -134,6 +181,7 @@ let playRound = (computerChoice, playerChoice) => {
         }
     }
     roundCounter++;
+    finishGame();
 }
 
 buttonsContainer.addEventListener("click", (e)=>{
