@@ -8,9 +8,22 @@
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <button class="btn">Rock</button>
-    <button class="btn">Paper</button>
-    <button class="btn">Scissors</button>
+    <div class="flex">
+        <div class="playerside">
+            <h2>Player</h2>
+            <div class="buttons flex">
+                <button class="btn">Rock</button>
+                <button class="btn">Paper</button>
+                <button class="btn">Scissors</button>
+            </div>
+            <p id="player-score" class="score">Score:</p>
+        </div>
+        <div class="playerside">
+            <h2>Computer</h2>
+            <div class="indentor"></div>
+            <p id="computer-score" class="score">Score:</p>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
