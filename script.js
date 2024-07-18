@@ -15,53 +15,71 @@ let getComputerChoice = () => {
 
 let playerScore = 0;
 let computerScore = 0;
+/* Put Down Results */
+let resultsBox = document.createElement("div");
+const resultsRoot = document.querySelector("#results-root");
+resultsRoot.appendChild(resultsBox);
+let showResults = (resultMessage, round) =>{
+    resultsBox.innerHTML = `
+                            <h2>Round ${round}<h2> 
+                            <p>${resultMessage}</p>`;
+    
+}
 
 /* Play Round */
-
+let roundCounter = 1;
 let playRound = (computerChoice, playerChoice) => {
+
     if(computerChoice === "rock"){
         switch (playerChoice) {
             case "rock":
-                console.log("Both Rock!\nTie! Nobody gets a point")
+                showResults("Both Rock!\nTie! Nobody gets a point", roundCounter)
                 break;
             case "paper":
-                console.log("Paper beats Rock!\nYou win this round! You get a point!")
+                showResults("Paper beats Rock!\nYou win this round! You get a point!", roundCounter)
                 playerScore++;
+                playerScoreParagraph.textContent = `Score: ${playerScore}` 
                 break;
             case "scissors":
-                console.log("Rock beats Scissors!\nYou lose this round! Computer gets a point")
+                showResults("Rock beats Scissors!\nYou lose this round! Computer gets a point", roundCounter)
                 computerScore++;
+                computerScoreParagraph.textContent = `Score: ${computerScore}` 
                 break;
         }
     }else if(computerChoice === "paper"){
         switch (playerChoice) {
             case "paper":
-                console.log("Both Paper!\n Tie! Nobody gets a point")
+                showResults("Both Paper!\n Tie! Nobody gets a point", roundCounter)
                 break;
             case "scissors":
-                console.log("Scissors cut a Paper!\nYou win this round! You get a point!")
+                showResults("Scissors cut a Paper!\nYou win this round! You get a point!", roundCounter)
                 playerScore++;
+                playerScoreParagraph.textContent = `Score: ${playerScore}` 
                 break;
             case "rock":
-                console.log("Paper beats Rock!\nYou lose this round! Computer gets a point")
+                showResults("Paper beats Rock!\nYou lose this round! Computer gets a point", roundCounter)
                 computerScore++;
+                computerScoreParagraph.textContent = `Score: ${computerScore}` 
                 break;
         }
     }else {
         switch (playerChoice) {
             case "scissors":
-                console.log("Both Scissors!\nTie! Nobody gets a point")
+                showResults("Both Scissors!\nTie! Nobody gets a point", roundCounter)
                 break;
             case "rock":
-                console.log("Rock beats Scissors!\nYou win this round! You get a point!")
+                showResults("Rock beats Scissors!\nYou win this round! You get a point!", roundCounter)
                 playerScore++;
+                playerScoreParagraph.textContent = `Score: ${playerScore}` 
                 break;
             case "paper":
-                console.log("Scissors cut a Paper!\nYou lose this round! Computer gets a point")
+                showResults("Scissors cut a Paper!\nYou lose this round! Computer gets a point", roundCounter)
                 computerScore++;
+                computerScoreParagraph.textContent = `Score: ${computerScore}` 
                 break;
         }
     }
+    roundCounter++;
 }
 
 buttonsContainer.addEventListener("click", (e)=>{
