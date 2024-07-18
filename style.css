@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #BBBDF6;
+}
+
+h1{
+    text-align: center;
+}
+
+.btn{
+    background-color: #9893DA;
+    padding: 10px 20px;
+    font-size: 16px;
+}
