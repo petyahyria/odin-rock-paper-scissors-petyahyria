@@ -16,6 +16,7 @@ let getComputerChoice = () => {
 let playerScore = 0;
 let computerScore = 0;
 /* Put Down Results */
+
 let resultsBox = document.createElement("div");
 resultsBox.style.cssText =  `
                             background-color: #9893DA;
@@ -30,15 +31,63 @@ let showResults = (resultMessage, round) =>{
                             <p>${resultMessage}</p>`;
     
 }
+/* Make image of choice active */
 
+let makeImageActive = (choice, computerOrPlayer) =>{
+    
+    const rockPlayer = document.querySelector("#player-rock");
+    const paperPlayer = document.querySelector("#player-paper");
+    const scissorsPlayer = document.querySelector("#player-scissors");
+    const rockComputer = document.querySelector("#computer-rock");
+    const paperComputer = document.querySelector("#computer-paper");
+    const scissorsComputer = document.querySelector("#computer-scissors");
+    const playerImages = [rockPlayer, paperPlayer, scissorsPlayer];
+    const computerImages = [rockComputer, paperComputer, scissorsComputer];
+    let removeClassActivePlayerImages = () => playerImages.forEach( el => el.classList.remove("active"));
+    let removeClassActiveComputerImages = () => computerImages.forEach( el => el.classList.remove("active"));
+    switch (choice) {
+        case "rock":
+            if(computerOrPlayer === "computer"){
+                removeClassActiveComputerImages();
+                rockComputer.classList.add("active");
+            }else if(computerOrPlayer === "player"){
+                removeClassActivePlayerImages();
+                rockPlayer.classList.add("active");
+            }
+            break;
+        case "paper":
+            if(computerOrPlayer === "computer"){
+                removeClassActiveComputerImages();
+                paperComputer.classList.add("active");
+            }else if(computerOrPlayer === "player"){
+                removeClassActivePlayerImages();
+                paperPlayer.classList.add("active");
+            }
+            break;
+        case "scissors":
+            if(computerOrPlayer === "computer"){
+                removeClassActiveComputerImages();
+                scissorsComputer.classList.add("active");
+            }else if(computerOrPlayer === "player"){
+                removeClassActivePlayerImages();
+                scissorsPlayer.classList.add("active");
+            }
+            break;
+    }
+}
+
+makeImageActive();
 /* Play Round */
 let roundCounter = 1;
 let playRound = (computerChoice, playerChoice) => {
 
+    makeImageActive(computerChoice, "computer");
+    makeImageActive(playerChoice, "player");
     if(computerChoice === "rock"){
         switch (playerChoice) {
             case "rock":
                 showResults("Both Rock!\nTie! Nobody gets a point", roundCounter)
+                makeImageActive()
                 break;
             case "paper":
                 showResults("Paper beats Rock!\nYou win this round! You get a point!", roundCounter)

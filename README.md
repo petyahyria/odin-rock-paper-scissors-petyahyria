@@ -44,6 +44,16 @@
                     PRINT "You lose"
                 ELSE
                     PRINT "Tie"
+## Images
+
+"rock.png" 
+(["https://www.flaticon.com/free-icons/geology"]) Geology icons created by vectorsmarket15 - Flaticon
+
+"paper.png"
+(["https://www.flaticon.com/free-icons/hold"]) Hold icons created by Pixel perfect - Flaticon      
+
+"scissors.png"
+(["https://www.flaticon.com/free-icons/scissors"]) Scissors icons created by juicy_fish - Flaticon
             
             
 
