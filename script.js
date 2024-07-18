@@ -1,8 +1,7 @@
-const rockBtn = document.querySelector("#rock-btn");
-const paperBtn = document.querySelector("#paper-btn");
-const scissorsBtn = document.querySelector("#scissors-btn");
-const playerScorePara = document.querySelector("#player-score")
-const computerScorePara = document.querySelector("#computer-score")
+const buttonsContainer = document.querySelector(".buttons");
+const playerScoreParagraph = document.querySelector("#player-score")
+const computerScoreParagraph = document.querySelector("#computer-score")
+
 
 /* Computer Choice */
 
@@ -64,3 +63,22 @@ let playRound = (computerChoice, playerChoice) => {
         }
     }
 }
+
+buttonsContainer.addEventListener("click", (e)=>{
+    let target = e.target;
+    let playerChoice;
+    switch (target.id) {
+        case "rock-btn":
+            playerChoice="rock"
+            playRound(getComputerChoice(), playerChoice)
+            break;
+        case "paper-btn":
+            playerChoice="paper"
+            playRound(getComputerChoice(), playerChoice)
+            break;
+        case "scissors-btn":
+            playerChoice="scissors"
+            playRound(getComputerChoice(), playerChoice)
+            break;
+    }
+})
