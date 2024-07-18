@@ -1,20 +1,15 @@
+const rockBtn = document.querySelector("#rock-btn");
+const paperBtn = document.querySelector("#paper-btn");
+const scissorsBtn = document.querySelector("#scissors-btn");
+const playerScorePara = document.querySelector("#player-score")
+const computerScorePara = document.querySelector("#computer-score")
+
 /* Computer Choice */
 
 let getComputerChoice = () => {
     const choices = ["rock", "paper", "scissors"];
     let computerChoice = Math.floor(Math.random() * 3);
     return choices[computerChoice];
-}
-
-/* Human choice */
-
-let getHumanChoice = () => {
-    let humanChoice = prompt("Type 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)").toLowerCase();
-    //validation loop
-    while(humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors"){
-        humanChoice = prompt("Maybe you've made a typo\nType 'Rock', 'Paper' or 'Scissors' (without quotes, case-insensetive)").toLowerCase();
-    }
-    return humanChoice; 
 }
 
 /* Score of players */
